@@ -1,5 +1,5 @@
 export const MONTHS = {
-  // Commencer les mois à l'index "0" pour janvier:
+  // Commencer les mois à l'index "0" pour "janvier":
   0: "janvier",
   1: "février",
   2: "mars",

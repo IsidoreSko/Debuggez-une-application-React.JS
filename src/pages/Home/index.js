@@ -16,9 +16,6 @@ const Page = () => {
   // const { last } = useData();
 
   const { data } = useData();
-  // const byDateDesc = data?.events.sort((evtA, evtB) =>
-  //   new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
-  // );
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
     // ">" pour récupérer l'événement le plus récent:
     new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
@@ -125,7 +122,7 @@ const Page = () => {
       </main>
       <footer className="row">
         <div className="col presta">
-          <h3>Notre derniére prestation</h3>
+          <h3>Notre dernière prestation</h3>
           {byDateDesc && (
             <EventCard
               imageSrc={byDateDesc[0]?.cover}
@@ -136,30 +133,7 @@ const Page = () => {
               data-testid="last-event"
             />
           )}
-
-          {/* {!last ? (
-            <div />
-          ) : ( */}
-          {/* {last && (
-            <EventCard
-              imageSrc={last?.cover}
-              title={last?.title}
-              date={new Date(last?.date)}
-              small
-              label="boom"
-            />
-          )} */}
         </div>
-        {/* <div className="col presta">
-          <h3>Notre derniére prestation</h3>
-          <EventCard
-            imageSrc={last?.cover}
-            title={last?.title}
-            date={new Date(last?.date)}
-            small
-            label="boom"
-          />
-        </div> */}
         <div className="col contact">
           <h3>Contactez-nous</h3>
           <address>45 avenue de la République, 75000 Paris</address>
