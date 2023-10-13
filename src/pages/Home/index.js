@@ -13,11 +13,9 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  // const { last } = useData();
-
   const { data } = useData();
-  const byDateDesc = data?.focus.sort((evtA, evtB) =>
-    // ">" pour récupérer l'événement le plus récent:
+  const last = data?.focus.sort((evtA, evtB) =>
+    // ">" pour classer les événements du plus récent au plus ancien:
     new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
   );
   return (
@@ -123,14 +121,14 @@ const Page = () => {
       <footer className="row">
         <div className="col presta">
           <h3>Notre dernière prestation</h3>
-          {byDateDesc && (
+          {/* Récupération de l'événement le plus récent: */}
+          {last && (
             <EventCard
-              imageSrc={byDateDesc[0]?.cover}
-              title={byDateDesc[0]?.title}
-              date={new Date(byDateDesc[0]?.date)}
+              imageSrc={last[0].cover}
+              title={last[0].title}
+              date={new Date(last[0].date)}
               small
               label="boom"
-              data-testid="last-event"
             />
           )}
         </div>

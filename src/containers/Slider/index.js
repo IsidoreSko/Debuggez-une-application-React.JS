@@ -19,6 +19,7 @@ const Slider = () => {
     );
   };
   useEffect(() => {
+    // Eviter erreur de console:
     if (byDateDesc) {
       nextCard();
     }
@@ -26,7 +27,7 @@ const Slider = () => {
   return (
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
-        // Créer une div avec la key:
+        // Créer une div avec la "key":
         <div key={event.title}>
           <div
             className={`SlideCard SlideCard--${
@@ -46,11 +47,12 @@ const Slider = () => {
             <div className="SlideCard__pagination">
               {byDateDesc.map((_, radioIdx) => (
                 <input
-                  key={`${_.title}`}
-                  // key={[radioIdx]}
+                  // Pour avoir une "key" unique:
+                  key={_.title}
                   type="radio"
                   name="radio-button"
                   checked={index === radioIdx}
+                  // Avertissement dans la console:
                   readOnly
                 />
               ))}
